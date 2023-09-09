@@ -1,0 +1,242 @@
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	min-height: 100vh;
+}
+.container {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: hsl(27, 66%, 92%);
+}
+.miniContainer { 
+	min-width: 500px;
+	min-height: 500px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.div1 {
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: hsl(10, 79%, 65%);
+	border-radius: 10px;
+	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+}
+.balance {
+	padding-left: 25px;
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+}
+.mybalance-text {
+	color: white;
+	font-size: 14px;
+}
+.balanceNumber {
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+}
+.logo {
+	width: 200px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+.black-circle {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	clip-path: circle(50%);
+	background: burlywood;
+	position: absolute;
+	top: 50%;
+	left: 65%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	animation: myanime1 1 1s linear;
+}
+.white-circle {
+	border: 3px solid white;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	clip-path: circle(50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	z-index: 1;
+	animation: myanime2 1 1s linear;
+}
+
+.div2 {
+	background: white;
+	border-radius: 10px;
+	background: white;
+	height: 380px;
+	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+}
+.div2 h1 {
+	font-size: 18px;
+	padding-left: 25px;
+	padding-top: 25px;
+	color: saddlebrown;
+}
+.barsDiv {
+	position: relative;
+}
+.barsDiv::after {
+	content: "";
+	position: absolute;
+	width: 88%;
+	height: 1px;
+	bottom: -10px;
+	background: rgba(0, 0, 0, 0.2);
+}
+.barsDiv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 12px;
+}
+.barContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: 10%;
+	height: 200px;
+}
+.bar { 
+	width: 100%;
+	background: hsl(10, 79%, 65%);
+	border-radius: 5px;
+	animation: myanime3 1 1s linear;
+	position: relative;
+	cursor: pointer;
+	transition: 0.3s;
+}
+.hoverDiv {
+	position: absolute;
+	font-weight: bold;
+	width: 120%;
+	top: -45px;
+	left: -10%;
+	font-size: 12px;
+	text-align: center;
+	padding: 10px 0;
+	background: black;
+	color: white;
+	z-index: -1;
+	opacity: 0;
+	transition: 0.3s;
+	border-radius: 5px;
+}
+.bar:hover .hoverDiv {
+	opacity: 1;
+	z-index: 1;
+}
+.bar:hover {
+	background: hsl(0, 100%, 77%);
+	transition: 0.3s;
+}
+.currentDay {
+	background: deepskyblue;
+	transition: 0.3s;
+}
+.currentDay:hover {
+	background: lightgreen;
+	transition: 0.3s;
+}
+.day {
+	text-align: center;
+	font-size: 12px;
+	padding: 10px 0 10px 0;
+	color: gray;
+}
+.totalContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 25px;
+	margin-top: 12px;
+}
+.month-text {
+	font-size: 14px;
+	padding-bottom: 10px;
+	color: gray;
+}
+.total-price {
+	font-size: 25px;
+	font-weight: bold;
+	color: saddlebrown;
+}
+.diff {
+	font-size: 14px;
+	padding-bottom: 10px;
+	font-weight: bold;
+	color: saddlebrown;
+}
+.last-text {
+	font-size: 14px;
+	color: gray;
+}
+
+@keyframes myanime1 {
+	0% {
+		left: 50%;
+		width: 0;
+		height: 0;
+	}
+	50% {
+		left: 65%;
+	}
+}
+@keyframes myanime2 {
+	0% {
+		left: 65%;
+		width: 0;
+		height: 0;
+	}
+	50% {
+		left: 50%;
+	}
+}
+@keyframes myanime3 {
+	0% {
+		height: 0;
+		background: red;
+	}
+	50% {
+		height: inherit;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.miniContainer {
+		min-width: 100%;
+		padding: 15px;
+	}
+	.div1 {
+		width: 100%;
+	}
+	.logo {
+		width: 50%;
+	}
+	.hoverDiv {
+		width: 140%;
+		font-size: 10px;
+		left: -20%;
+	}
+}
